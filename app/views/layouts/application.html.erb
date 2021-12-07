@@ -10,6 +10,23 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <div class="navbar navbar-light sticky-top" style="background-color: #EEEEEE;">
+        <div class="container">
+          <a href="/" class="navbar-brand d-flex align-items-center">
+           <strong>助け合い介護</strong>
+          </a>
+        </div>
+        <%# <a class="btn btn-outline-secondary mr-2" href="#" role="button">マイページ</a> %>
+        <%# <a class="btn btn-outline-secondary mr-2" href="#" role="button">ログアウト</a> %>
+        <a class="btn btn-outline-secondary mr-2" href="#" role="button">ログイン</a>
+        <a class="btn btn-outline-secondary mr-2" href="#" role="button">新規登録</a>
+      </div>
+    </header>
+  <%= yield %>
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+      <p class="mb-1">MikaKanemasu</p>
+    </footer>
+  </footer>
   </body>
 </html>
