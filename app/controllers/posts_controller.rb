@@ -1,15 +1,27 @@
 class PostsController < ApplicationController
-  before_action :move_to_index, except: :index
+  before_action :authenticate_user!, only: :new
 
   def index
+    @posts = Post.all
+  end
+
+  def new
+    @post = Post.new
+  end
+
+  def create
+    @post = Post.new(post_params)
+    if @post.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   private
 
-  def move_to_index
-    unless user_signed_in?
-      redirect_to action: :index
-    end
+  def post_params
+    params.require(:post).permit(:text).merge(user_id: current_user.id)
   end
   
 end
