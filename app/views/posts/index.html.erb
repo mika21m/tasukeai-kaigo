@@ -23,4 +23,12 @@
         </div>
       </div>
     </div>
+
+    <div class="contents row ml-5">
+      <% @posts.each do |post| %>
+          <%= post.text %>
+          <%= post.user.name %>
+      <% end %>
+    </div>
+
 </div>

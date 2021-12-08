@@ -17,6 +17,7 @@
             <a href="/" class="navbar-brand">助け合い介護</a>
             <form class="d-flex">
               <% if user_signed_in? %>
+                <%= link_to "投稿", new_post_path, class: "btn btn-outline-secondary mr-2" %>
                 <%= link_to "マイページ", root_path, class: "btn btn-outline-secondary mr-2" %>
                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-outline-secondary mr-2" %>
               <% else %>
