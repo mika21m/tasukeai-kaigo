@@ -10,7 +10,7 @@
           <p class="card-text"><%=post.text %></p>
             <% if user_signed_in? && current_user.id == post.user_id %>
               <a href="#" class="card-link">Edit</a>
-              <a href="#" class="card-link">Delete</a>
+              <%= link_to "Delete", post_path(post.id), method: :delete %>
             <% else %>
             <% end %>
         </div>
