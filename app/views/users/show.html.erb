@@ -1,0 +1,23 @@
+<div class="jumbotron">
+  <div class="row">
+    <p><%= @name %>さんの投稿一覧</p>
+      <% @posts.each do |post| %>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-img-top text-center">
+              <%= image_tag post.image.variant(resize: '250x250') if post.image.attached? %>
+            </div>
+            <div class="card-body">
+              <p class="card-title"><%= link_to post.user.name, user_path(current_user.id) %></p>
+              <p class="card-text"><%=post.text %></p>
+                <% if user_signed_in? && current_user.id == post.user_id %>
+                  <%= link_to "Edit", edit_post_path(post.id), method: :get %>
+                  <%= link_to "Delete", post_path(post.id), method: :delete %>
+                <% else %>
+                <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+  </div>
+</div>
