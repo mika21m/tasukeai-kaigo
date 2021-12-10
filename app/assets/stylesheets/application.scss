@@ -14,5 +14,10 @@
  @import "bootstrap";
 
  .card {
-   background-color: coral;
+   background-color: white;
  }
+
+ .jumbotron{
+  background: url(background-image.jpg)center no-repeat;
+  background-size: cover;
+}
