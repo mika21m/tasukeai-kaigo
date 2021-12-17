@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
-  before_action :set_post, only: [:destroy, :edit, :update]
+  before_action :set_post, only: [:destroy, :edit, :update, :show]
 
   def index
     @posts = Post.includes(:user)
@@ -38,6 +38,11 @@ class PostsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def show
+    @comments = @post.comments.includes(:user)
+    @comment = Comment.new
   end
 
   private
