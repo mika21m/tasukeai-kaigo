@@ -1,22 +1,32 @@
 <div class="jumbotron">
   <div class="row">
-    <% @posts.each do |post| %>
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-img-top text-center">
-            <%= image_tag post.image.variant(resize: '250x250') if post.image.attached? %>
-          </div>
-          <div class="card-body">
-            <p class="card-title"><%= link_to post.user.name, user_path(current_user.id) %></p>
-            <p class="card-text"><%=post.text %></p>
-              <% if user_signed_in? && current_user.id == post.user_id %>
-                <%= link_to "Edit", edit_post_path(post.id), method: :get %>
-                <%= link_to "Delete", post_path(post.id), method: :delete %>
-              <% else %>
-              <% end %>
-          </div>
+    <div class="card-columns">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Help Each Other とは？</h5>
+          <p class="card-text">Help Each Other は認知症介護者を対象に作成したSNSです。</p>
+          <p class="card-text">介護をしていて役立った情報や知恵、面白かったことなどを発信してもらえればと考えています。</p>
+          <p class="card-text">大好きな母や父、祖父母を想い恩返しのつもりで介護をしていても、</p>
+          <p class="card-text">毎日続く介護に疲労してしまい笑顔でいられなくなることやもあると思います。</p>
+          <p class="card-text">そんな時は、このサイトを開いてみんなで助け合い、できる限りハッピーな気持ちになってもらえたら幸いです。</p>
         </div>
       </div>
-    <% end %>
+
+      <% @posts.each do |post| %>
+          <div class="card">
+            <div class="card-img-top text-center">
+              <%= image_tag post.image.variant(resize: '250x250') if post.image.attached? %>
+            </div>
+            <div class="card-body">
+              <% if user_signed_in? && current_user.id == post.user_id %>
+                <p class="card-title"><%= link_to post.user.name, user_path(current_user.id) %></p>
+              <% else %>
+                <p class="card-title"><%= post.user.name %></p>
+              <% end %>
+                <p class="card-text"><%=post.text %></p>
+            </div>
+          </div>
+      <% end %>
+    </div>
   </div>
 </div>
