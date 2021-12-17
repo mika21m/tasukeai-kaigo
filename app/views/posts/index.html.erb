@@ -13,6 +13,7 @@
       </div>
 
       <% @posts.each do |post| %>
+        <%= link_to post_path(post.id) do %>
           <div class="card">
             <div class="card-img-top text-center">
               <%= image_tag post.image.variant(resize: '250x250') if post.image.attached? %>
@@ -24,8 +25,10 @@
                 <p class="card-title"><%= post.user.name %></p>
               <% end %>
                 <p class="card-text"><%=post.text %></p>
+                <%= link_to "Comment", post_path(post.id) %>
             </div>
           </div>
+        <% end %>
       <% end %>
     </div>
   </div>
