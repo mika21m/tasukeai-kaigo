@@ -16,12 +16,12 @@
           <%= link_to image_tag("logo.PNG"), root_path, class:"navbar-brand" %>
           <form class="d-flex">
             <% if user_signed_in? %>
-              <%= link_to "post", new_post_path, class: "btn btn-outline-secondary mr-2" %>
-              <%= link_to "my page", user_path(current_user.id), class: "btn btn-outline-secondary mr-2" %>
-              <%= link_to "log out", destroy_user_session_path, method: :delete, class: "btn btn-outline-secondary mr-2" %>
+              <%= link_to "Post", new_post_path, class: "btn btn-outline-secondary mr-2" %>
+              <%= link_to "My page", user_path(current_user.id), class: "btn btn-outline-secondary mr-2" %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-outline-secondary mr-2" %>
             <% else %>
-              <%= link_to "log in", new_user_session_path, class: "btn btn-outline-secondary mr-2" %>
-              <%= link_to "sign up", new_user_registration_path, class: "btn btn-outline-secondary mr-2" %>
+              <%= link_to "Sign up", new_user_registration_path, class: "btn btn-outline-secondary mr-2" %>
+              <%= link_to "Log in", new_user_session_path, class: "btn btn-outline-secondary mr-2" %>
             <% end %>
           </form>
         </div>

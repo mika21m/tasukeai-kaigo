@@ -3,9 +3,17 @@
     <div class="container">
       <h3 class="post text-center">post</h3>
       <%= form_with(model: @post, local: true) do |form| %>
-        <%= form.file_field :image %>
-        <%= form.text_area :text, placeholder: "text", rows: "10" %>
-        <%= form.submit "SEND" %>
+        <div>
+          <p>Image</p>
+          <%= form.file_field :image %>
+        </div>
+        <div>
+          <p>Text</p>
+          <%= form.text_area :text, placeholder: "text", rows: "10", class: "form-control" %>
+        </div>
+        <div>
+          <%= form.submit "SEND", class: "btn btn-outline-secondary" %>
+        </div>
       <% end %>
     </div>
   </div>
