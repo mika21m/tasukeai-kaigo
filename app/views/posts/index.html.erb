@@ -27,6 +27,14 @@
               <% end %>
                 <p class="card-text"><%= post.text %></p>
                 <%= link_to "Comment", post_path(post.id), class: "editlink" %>
+              <div class="like-good">
+                <div id="likes_buttons_<%= post.id %>" class="like">
+                  <%= render partial: 'likes/like', locals: {post: post} %>
+                </div>
+                <div id="goods_buttons_<%= post.id %>" class="good">
+                  <%= render partial: 'goods/good', locals: {post: post} %>
+                </div>
+              </div>
             </div>
           </div>
       <% end %>
