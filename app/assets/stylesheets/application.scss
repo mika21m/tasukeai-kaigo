@@ -93,3 +93,37 @@
 .delete {
   margin-left: 3%;
 }
+
+.light-btn {
+  font-size: 15px;
+  color: #808080;
+ }
+ 
+ .unlight-btn {
+  font-size: 15px;
+  color: #FF6600;
+ }
+ 
+ .like {
+   padding-top: 3%;
+ }
+
+ .like-btn {
+  font-size: 15px;
+  color: #808080;
+ }
+ 
+ .unlike-btn {
+  font-size: 15px;
+  color: #e54747;
+ }
+
+ .good {
+   padding-top: 3%;
+   padding-left: 4%;
+   white-space: nowrap;
+ }
+
+ .like-good {
+   display: flex;
+ }

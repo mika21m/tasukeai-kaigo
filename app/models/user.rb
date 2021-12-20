@@ -8,4 +8,15 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :likes
+  has_many :goods
+
+  def liked_by?(post_id)
+    likes.where(post_id: post_id).exists?
+  end
+  
+  def gooded_by?(post_id)
+    goods.where(post_id: post_id).exists?
+  end
+
 end
