@@ -4,11 +4,12 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Help Each Other とは？</h5>
-          <p class="card-text">Help Each Other は認知症介護者を対象に作成したSNSです。</p>
-          <p class="card-text">介護をしていて役立った情報や知恵、面白かったことなどを発信してもらえればと考えています。</p>
+          <p class="card-text">Help Each Other は、認知症の方を介護している人々が気軽に意見を交換したり、</p>
+          <p class="card-text">介護の知恵などを発信し、互いに助け合うことができれば良いなという想いから生まれたSNSです。</p>
           <p class="card-text">大好きな母や父、祖父母を想い恩返しのつもりで介護をしていても、</p>
-          <p class="card-text">毎日続く介護に疲労してしまい笑顔でいられなくなることやもあると思います。</p>
-          <p class="card-text">そんな時は、このサイトを開いてみんなで助け合い、できる限りハッピーな気持ちになってもらえたら幸いです。</p>
+          <p class="card-text">毎日続く介護に疲弊してしまい笑顔を失ってしまうこともあると思います。</p>
+          <p class="card-text">そんな時は、このアプリを開いてみんなで助け合い、</p>
+          <p class="card-text">介護される人もする人もできる限りハッピーに過ごせるきっかけになれば嬉しいです。</p>
         </div>
       </div>
 
@@ -25,7 +26,7 @@
               <% else %>
                 <p class="card-title"><%= post.user.name %></p>
               <% end %>
-                <p class="card-text"><%= post.text %></p>
+                <p class="card-text"><%= safe_join(post.text.split("\n"),tag(:br)) %></p>
                 <%= link_to "Comment", post_path(post.id), class: "editlink" %>
               <div class="like-good">
                 <div id="likes_buttons_<%= post.id %>" class="like">

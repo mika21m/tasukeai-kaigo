@@ -9,7 +9,7 @@
           </div>
           <div class="card-body">
             <p class="card-title"><%= link_to post.user.name, user_path(current_user.id), class: "editlink" %></p>
-            <p class="card-text"><%=post.text %></p>
+            <p class="card-text"><%= safe_join(post.text.split("\n"),tag(:br)) %></p>
             <div>
               <%= link_to "Comment", post_path(post.id), class: "editlink" %>
             </div>
