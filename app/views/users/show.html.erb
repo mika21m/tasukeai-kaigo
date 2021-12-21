@@ -10,6 +10,9 @@
           <div class="card-body">
             <p class="card-title"><%= link_to post.user.name, user_path(current_user.id), class: "editlink" %></p>
             <p class="card-text"><%=post.text %></p>
+            <div>
+              <%= link_to "Comment", post_path(post.id), class: "editlink" %>
+            </div>
               <% if user_signed_in? && current_user.id == post.user_id %>
                 <%= link_to "Edit", edit_post_path(post.id), class: "editlink", method: :get %>
                 <%= link_to "Delete", post_path(post.id), class: "editlink delete",  method: :delete %>
